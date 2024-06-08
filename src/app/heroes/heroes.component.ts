@@ -1,16 +1,29 @@
-import { Component } from '@angular/core';
-import { Hero } from '../models/hero';
-import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { HEROES } from '../models/mock-heroes';
+import {Component} from '@angular/core';
+import {
+  NgIf,
+  NgFor,
+  UpperCasePipe,
+} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+
+import {Hero} from '../models/hero';
+import {HEROES} from '../models/mock-heroes';
+import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 
 @Component({
-  selector: 'app-heroes',
   standalone: true,
-  imports: [UpperCasePipe, FormsModule, NgIf, NgFor],
+  selector: 'app-heroes',
   templateUrl: './heroes.component.html',
-  styleUrl: './heroes.component.css'
+  styleUrls: ['./heroes.component.css'],
+  imports: [
+    FormsModule,
+    NgIf,
+    NgFor,
+    UpperCasePipe,
+    HeroDetailComponent
+  ],
 })
+
 export class HeroesComponent {
   heroes = HEROES;
   selectedHero?: Hero;
